@@ -308,7 +308,9 @@
 					this._datatable.addEventListener("toggle-all", this._toggleAll.bind(this));
 					this._datatable._setPartialSelection = function(){};
 					this.set('selectedIds', []);
-					this.set('_sortProperty', this.idProperty);
+					if(this._sortProperty === null || this._sortProperty === undefined) {
+						this.set('_sortProperty', this.idProperty);
+					}
 				},
 				behaviors: [
 					Polymer.IronResizableBehavior,
